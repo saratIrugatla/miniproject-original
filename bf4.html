@@ -1,0 +1,104 @@
+<html>
+<span id="ucframe"></span>
+<div class="leftinput">
+<div id="topmenu" class="topmenucenter"><ul><li id='menuon'><a href="#" onclick="popMenu('standard');">US units</a></li><li><a href="#" onclick="popMenu('metric');">metric units</a></li> <li><a href="#" onclick="popMenu('other');">other units</a></li></ul></div>
+<div class="panel2">
+<table id="calinputtable" width="275">
+<form name="calform">
+<input type="hidden" name="ctype" id="ctype" value="metric">
+<tr>
+	<td width="70">Gender</td>
+	<td width="205"><label for="csex1"><input type="radio" name="csex" id="csex1" value="m" checked /> male</label> &nbsp; <label for="csex2"><input type="radio" name="csex" id="csex2" value="f"  /> female</label></td>
+</tr>
+<tr>
+	<td width="70">Age</td>
+	<td width="205"><input type="text" name="cage" value="25" class="innormal"></td>
+</tr>
+</table>
+<table width="275" id="standardheightweight">
+<tr>
+	<td width="70">Weight</td>
+	<td width="205"><input type="text" name="cweightlbs" value="152" class="innormal"> pounds</td>
+</tr>
+<tr>
+	<td width="70">Height</td>
+	<td width="205"><input type="text" name="cheightfeet" id="cheightfeet" value="5" class="in4char"> feet <input type="text" name="cheightinch" id="cheightinch" value="10.5" class="in4char"> inches</td>
+</tr>
+<tr>
+	<td width="70">Neck</td>
+	<td width="205"><input type="text" name="cneckfeet" id="cneckfeet" value="1" class="in4char"> feet <input type="text" name="cneckinch" id="cneckinch" value="7.5" class="in4char"> inches</td>
+</tr>
+<tr>
+	<td width="70">Waist</td>
+	<td width="205"><input type="text" name="cwaistfeet" id="cwaistfeet" value="3" class="in4char"> feet <input type="text" name="cwaistinch" id="cwaistinch" value="1.5" class="in4char"> inches</td>
+</tr>
+<tr>
+	<td width="70">Hip</td>
+	<td width="205"><input type="text" name="chipfeet" id="chipfeet" value="2" class="in4char"> feet <input type="text" name="chipinch" id="chipinch" value="10.5" class="in4char"> inches</td>
+</tr>
+</table>
+<table width="275" id="metricheightweight">
+<tr>
+	<td width="70">Weight</td>
+	<td width="205"><input type="text" name="cweightkgs" value="70" class="innormal"> kgs</td>
+</tr>
+<tr>
+	<td width="70">Height</td>
+	<td width="205"><input type="text" name="cheightmeter" id="cheightmeter" value="178" class="innormal"> centimeters</td>
+</tr>
+<tr>
+	<td width="70">Neck</td>
+	<td width="205"><input type="text" name="cneckmeter"  id="cneckmeter" value="50" class="innormal"> centimeters</td>
+</tr>
+<tr>
+	<td width="70">Waist</td>
+	<td width="205"><input type="text" name="cwaistmeter" id="cwaistmeter" value="96" class="innormal"> centimeters</td>
+</tr>
+<tr>
+	<td width="70">Hip</td>
+	<td width="205"><input type="text" name="chipmeter" id="chipmeter" value="92" class="innormal"> centimeters</td>
+</tr>
+</table>
+<table width="275">
+<tr>
+	<td width="70">&nbsp;</td>
+	<td width="205"><input type="image" src="//d26tpo4cm8sb6k.cloudfront.net/img/svg/calculate.svg" value="Calculate" alt="Calculate"></td>
+</tr>
+</form>
+</table>
+</div>
+
+
+
+</div>
+<div class="rightresult">
+<h2 class="h2result">Result</h2><p class='verybigtext'><font color='green'><b>Body Fat: 15.7%</b></font></p><table class="cinfoT"><tr><td>Body Fat (U.S. Navy Method)</td><td>15.7%</td></tr><tr><td>Body Fat Category</td><td>Fitness</td></tr><tr><td>Body Fat Mass</td><td>11.0 kgs</td></tr><tr><td>Lean Body Mass</td><td>59.0 kgs</td></tr><tr><td>Ideal Body Fat for Given Age<br>(Jackson &amp; Pollard)</td><td>10.5%</td></tr><tr><td>Body Fat to Lose to Reach Ideal</td><td>3.6 kgs</td></tr><tr><td>Body Fat (BMI method)</td><td>15.4%</td></tr></table></div>
+<div id="clear"></div>
+<script>
+function popMenu(inval, insubmit){
+	htmlVal = "";
+	if (inval == "metric"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"popMenu('standard',1);\">US Units</a></li> <li id='menuon'><a href=\"#\" onclick=\"popMenu('metric',1);\">Metric Units</a></li> <li><a href=\"#\" onclick=\"popMenu('other');\">Other Units</a></li>";
+		gObj("ctype").value="metric";
+		gObj("standardheightweight").style.display = 'none';
+		gObj("metricheightweight").style.display = 'block';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+		gObj("ucframe").innerHTML ="";
+		if (insubmit==1) document.calform.submit();
+	}else if (inval == "standard"){
+		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"popMenu('standard',1);\">US Units</a></li> <li><a href=\"#\" onclick=\"popMenu('metric',1);\">Metric Units</a></li> <li><a href=\"#\" onclick=\"popMenu('other');\">Other Units</a></li>";
+		gObj("ctype").value="standard";
+		gObj("standardheightweight").style.display = 'block';
+		gObj("metricheightweight").style.display = 'none';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+		gObj("ucframe").innerHTML ="";
+		if (insubmit==1) document.calform.submit();
+	}else{
+		htmlVal = gObj("topmenu").innerHTML ;
+		gObj("ucframe").innerHTML = "<iframe src=\"/converter/converter.php?type=\" style=\"overflow:hidden;width:100%\" width=\"100%\" height=\"238\" frameborder=\"NO\" scrolling=\"NO\" allowTransparency=\"true\" ></IFRAME>";
+	}
+
+	gObj("topmenu").innerHTML = htmlVal;
+}
+popMenu("metric",0);
+</script>
