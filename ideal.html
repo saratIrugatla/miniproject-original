@@ -1,0 +1,65 @@
+<html>
+<body background="bff.jpg">
+<center> <font color="red"> <h1>  IDEAL BODY WEIGHT CALCULATOR  </font><br></center></h1>
+<SCRIPT LANGUAGE="JavaScript" src="ibw2.js">
+</script>
+<script language=javascript src="in_cm.js">
+</script>
+<script language=javascript src="kg_lbs.js">
+
+</script>
+
+<center>
+<form>
+  <table border="0" cellpadding="0" cellspacing="0" bordercolorlight="#FFFFFF00" bordercolordark="#FFFFFF00">
+    <tr>
+      <td><br>
+        <table border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF">
+          <tr>
+            <td>Gender</td>
+            <td>male</td>
+            <td><INPUT type=radio value=1 name=sex></td>
+            <td>female</td>
+            <td><INPUT type=radio CHECKED value=0 name=sex></td>
+          </tr>
+          <tr>
+            <td>weight</td>
+            <td><INPUT size=5 name=wt><SELECT size=1 name=wt2> <OPTION selected>kg</OPTION> 
+  <OPTION>lb</OPTION></SELECT> </td>
+          </tr>
+          <tr>
+            <td>height</td>
+            <td><INPUT size=5 name=ht><SELECT size=1 name=ht2> <OPTION selected>cm</OPTION> 
+  <OPTION>in</OPTION></SELECT> </td>
+          </tr>
+          <tr>
+        <td colspan="2" align="center"><INPUT onclick=ideal(this.form) type=button value=Solve></td>
+          </tr>
+          <tr>
+            <td>IBW</td>
+            <td><INPUT size=9 name=IBW style="background-color: #FFFFFF" onClick="window.alert('Enter nothing here.');"></td>
+          </tr>
+          <tr>
+            <td>IBW + 30%</td>
+            <td><INPUT size=9 name=per style="background-color: #FFFFFF" onClick="window.alert('Enter nothing here.');"></td>
+          </tr>
+          <tr>
+            <td>ABW</td>
+            <td><INPUT size=9 name=ABW style="background-color: #FFFFFF" onClick="window.alert('Enter nothing here.');"></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center"><INPUT type=reset value=Reset></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  </form>
+</center>
+<br>
+
+<center><h2>*IBW= IDEAL BODY WEIGHT<h2>
+<br>
+<h2>*ADW= ADJUSTED BODY WEIGHT<h2>
+</center></body>
+</html>

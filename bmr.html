@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<center><h2>
+Basal Metabolic Rate
+</h2></center>
+</head>
+<body background="23.jpg">
+
+  
+
+<center>
+  <form style="width: 500px">
+  Gender:
+  <input type="radio" id="gender" name="gender" value="masc" checked> Male
+  <input type="radio" id="gender" name="gender" value="fem"> Female<br>
+      period:   
+  <input type="number" id="age" value="20"><br><br>
+  Height:
+  <input type="number" id="height" value="180"><br><br>
+  Weight:
+  <input type="number" id="weigth" value="80"><br>
+</form>
+
+<button type="button"
+onclick="">
+Result</button>
+
+<p id="lblResult">BMR</p>
+ </center> 
+  <script>
+var bmr;
+
+
+    
+function calc() {
+  var age = document.getElementById("age").value;
+  var gender = document.getElementById("gender").value;
+  var height = document.getElementById("height").value;
+  var weigth = document.getElementById("weigth").value;
+  if (gender == "masc") {
+  bmr = 66.5 + ( 13.75 * weigth ) + ( 5.003 * height ) - ( 6.755 * age );
+  }
+  else {
+  bmr = 655.1 + ( 9.563 * weigth ) + ( 1.850 * height ) - ( 4.676 * age );
+  } 
+}
+
+    
+    
+
+document.getElementsByTagName("button")[0].addEventListener("click", function() {
+  calc();
+  document.getElementById('lblResult').innerHTML = bmr;
+
+})
+
+ 
+    
+
+</script>
+ 
+</body>
+
+</html>s
